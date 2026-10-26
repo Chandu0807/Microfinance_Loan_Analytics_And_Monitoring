@@ -1,0 +1,15 @@
+# Starts PostgreSQL only (the API and the frontend run on your machine in dev mode).
+services:
+  db:
+    image: postgres:16
+    container_name: microfinance_db
+    environment:
+      POSTGRES_USER: mf_user
+      POSTGRES_PASSWORD: mf_pass
+      POSTGRES_DB: microfinance
+    ports:
+      - "5433:5432"
+    volumes:
+      - mf_pgdata:/var/lib/postgresql/data
+volumes:
+  mf_pgdata:
